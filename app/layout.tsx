@@ -34,6 +34,13 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  twitter: {
+    title: 'My Blog',
+    card: 'summary_large_image',
+  },
+  verification: {
+    google: 'your-google-site-verification',
+  },
 }
 
 const cx = (...classes) => classes.filter(Boolean).join(' ')
@@ -51,7 +58,20 @@ export default function RootLayout({
         GeistSans.variable,
         GeistMono.variable
       )}
+      suppressHydrationWarning
     >
+      <head>
+        <link
+          rel="preconnect"
+          href="https://fonts.googleapis.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
         <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
           <Navbar />
