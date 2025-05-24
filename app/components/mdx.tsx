@@ -86,7 +86,7 @@ function createHeading(level) {
   return Heading
 }
 
-let components = {
+const components = {
   h1: createHeading(1),
   h2: createHeading(2),
   h3: createHeading(3),
@@ -97,13 +97,32 @@ let components = {
   a: CustomLink,
   code: Code,
   Table,
+  img: ({ src, alt, ...props }) => {
+    return (
+      <div className="my-8">
+        <Image
+          src={src}
+          alt={alt}
+          width={800}
+          height={400}
+          className="rounded-lg"
+          {...props}
+        />
+        {alt && (
+          <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-2 text-center">
+            {alt}
+          </p>
+        )}
+      </div>
+    )
+  },
 }
 
 export function CustomMDX(props) {
   return (
     <MDXRemote
       {...props}
-      components={{ ...components, ...(props.components || {}) }}
+      components={components}
     />
   )
 }

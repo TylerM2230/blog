@@ -1,42 +1,69 @@
-# Portfolio Blog Starter
+# Minimal Blog
 
-This is a porfolio site template complete with a blog. Includes:
+A minimal blog built with Next.js, featuring a clean homepage with clickable blog post links.
 
-- MDX and Markdown support
-- Optimized for SEO (sitemap, robots, JSON-LD schema)
-- RSS Feed
-- Dynamic OG images
-- Syntax highlighting
-- Tailwind v4
-- Vercel Speed Insights / Web Analytics
-- Geist font
+## Project Structure
 
-## Demo
-
-https://portfolio-blog-starter.vercel.app
-
-## How to Use
-
-You can choose from one of the following two methods to use this repository:
-
-### One-Click Deploy
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/solutions/blog&project-name=blog&repository-name=blog)
-
-### Clone and Deploy
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [pnpm](https://pnpm.io/installation) to bootstrap the example:
-
-```bash
-pnpm create next-app --example https://github.com/vercel/examples/tree/main/solutions/blog blog
+```
+.
+├── app/
+│   ├── blog/
+│   │   └── [slug]/
+│   │       └── page.tsx      # Individual blog post pages
+│   ├── components/
+│   │   └── posts.tsx         # Blog posts component
+│   ├── global.css           # Global styles
+│   ├── layout.tsx           # Root layout
+│   └── page.tsx             # Homepage
+├── content/
+│   └── blog/                # Blog posts in MDX format
+├── public/                  # Static assets
+├── tailwind.config.js       # Tailwind CSS configuration
+└── package.json            # Project dependencies
 ```
 
-Then, run Next.js in development mode:
+## Adding New Blog Posts
+
+1. Create a new MDX file in the `content/blog` directory with the following format:
+   ```mdx
+   ---
+   title: "Your Post Title"
+   publishedAt: "2024-02-20"
+   ---
+
+   Your post content here...
+   ```
+
+2. The post will automatically appear on the homepage as a clickable link, sorted by date (newest first).
+
+## Features
+
+- Clean homepage with clickable post links
+- Individual blog post pages
+- MDX support for rich content
+- Dark mode support
+- Responsive layout
+- Minimal and clean design
+
+## Development
 
 ```bash
+# Install dependencies
+pnpm install
+
+# Run development server
 pnpm dev
+
+# Build for production
+pnpm build
+
+# Start production server
+pnpm start
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/templates) ([Documentation](https://nextjs.org/docs/app/building-your-application/deploying)).
+## Technologies Used
+
+- Next.js
+- Tailwind CSS
+- MDX
+- TypeScript
