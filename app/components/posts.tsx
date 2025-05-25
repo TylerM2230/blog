@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import type { BlogPost } from '../lib/markdown'
+import type { BlogPostPreview } from '../lib/markdown'
 
 interface BlogPostsProps {
-  posts: BlogPost[]
+  posts: BlogPostPreview[]
 }
 
 export function BlogPosts({ posts }: BlogPostsProps) {

@@ -1,6 +1,6 @@
 # Minimal Blog
 
-A minimal blog built with Next.js, featuring a clean homepage with clickable blog post links.
+A minimal blog built with Next.js, featuring a clean design and modern typography. The blog uses JetBrains Mono as its primary font for optimal readability and a distinctive monospace aesthetic.
 
 ## Project Structure
 
@@ -8,42 +8,70 @@ A minimal blog built with Next.js, featuring a clean homepage with clickable blo
 .
 ├── app/
 │   ├── blog/
+│   │   ├── posts/           # Blog post markdown files
 │   │   └── [slug]/
-│   │       └── page.tsx      # Individual blog post pages
+│   │       └── page.tsx     # Individual blog post pages
 │   ├── components/
-│   │   └── posts.tsx         # Blog posts component
-│   ├── global.css           # Global styles
-│   ├── layout.tsx           # Root layout
-│   └── page.tsx             # Homepage
-├── content/
-│   └── blog/                # Blog posts in MDX format
-├── public/                  # Static assets
-├── tailwind.config.js       # Tailwind CSS configuration
-└── package.json            # Project dependencies
+│   │   ├── footer.tsx       # Footer component
+│   │   └── posts.tsx        # Blog posts component
+│   ├── global.css          # Global styles and typography
+│   ├── layout.tsx          # Root layout with font configuration
+│   └── page.tsx            # Homepage
+├── public/
+│   └── images/             # Blog post images
+├── tailwind.config.js      # Tailwind CSS configuration
+└── package.json           # Project dependencies
 ```
 
 ## Adding New Blog Posts
 
-1. Create a new MDX file in the `content/blog` directory with the following format:
-   ```mdx
+1. Create a new markdown file in the `app/blog/posts` directory with the following frontmatter:
+   ```markdown
    ---
    title: "Your Post Title"
-   publishedAt: "2024-02-20"
+   date: "YYYY-MM-DD"
+   excerpt: "A brief description of your post"
+   tags: ['tag1', 'tag2']
+   coverImage: "/images/your-image.jpg"
    ---
 
    Your post content here...
    ```
 
-2. The post will automatically appear on the homepage as a clickable link, sorted by date (newest first).
+2. Add any images referenced in your post to the `public/images` directory.
+
+3. The post will automatically appear on the homepage, sorted by date (newest first).
+
+### Post Formatting
+
+The blog supports standard markdown formatting:
+
+- Headings (H1-H4)
+- Lists (ordered and unordered)
+- Code blocks
+- Blockquotes
+- Images
+- Links
+
+### Typography
+
+The blog uses a carefully tuned typography system:
+- Primary font: JetBrains Mono
+- Base font size: 1.125rem (18px)
+- Line height: 1.75
+- Responsive heading sizes
+- Optimized spacing and margins
 
 ## Features
 
-- Clean homepage with clickable post links
-- Individual blog post pages
-- MDX support for rich content
+- Clean, minimal design
+- Modern monospace typography
 - Dark mode support
 - Responsive layout
-- Minimal and clean design
+- Optimized image handling
+- SEO-friendly
+- Analytics integration
+- Performance monitoring
 
 ## Development
 
@@ -63,7 +91,26 @@ pnpm start
 
 ## Technologies Used
 
-- Next.js
+- Next.js 14
 - Tailwind CSS
-- MDX
+- JetBrains Mono font
 - TypeScript
+- Vercel Analytics
+- Vercel Speed Insights
+
+## Styling
+
+The blog uses a custom styling system with:
+- CSS variables for consistent theming
+- Responsive design patterns
+- Optimized typography scales
+- Dark mode support
+- Custom prose styling for markdown content
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a new Pull Request
