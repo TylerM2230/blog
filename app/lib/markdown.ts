@@ -5,7 +5,6 @@ import { remark } from 'remark'
 import html from 'remark-html'
 import { cache } from 'react'
 import sizeOf from 'image-size'
-import type { Handler } from 'mdast-util-to-hast'
 
 const postsDirectory = path.join(process.cwd(), 'app/blog/posts')
 
@@ -37,9 +36,7 @@ export interface BlogPostPreview {
 // Cache the markdown processing with a more efficient implementation
 const processMarkdown = cache(async (content: string) => {
   const processedContent = await remark()
-    .use(html, {
-      sanitize: false
-    })
+    .use(html)
     .process(content)
   return processedContent.toString()
 })
