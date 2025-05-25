@@ -8,12 +8,12 @@ import { Footer } from './components/footer'
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'),
   title: {
-    default: 'Minimal Blog',
-    template: '%s | Minimal Blog',
+    default: 'blog',
+    template: '%s | blog',
   },
   description: 'A minimal blog built with Next.js',
   openGraph: {
-    title: 'Minimal Blog',
+    title: 'blog',
     description: 'A minimal blog built with Next.js',
     type: 'website',
   },
