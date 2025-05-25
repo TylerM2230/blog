@@ -1,4 +1,4 @@
-import fs from 'fs'
+import fs from 'fs/promises'
 import path from 'path'
 
 type Metadata = {
@@ -11,46 +11,70 @@ type Metadata = {
 function parseFrontmatter(fileContent: string) {
   let frontmatterRegex = /---\s*([\s\S]*?)\s*---/
   let match = frontmatterRegex.exec(fileContent)
-  let frontMatterBlock = match![1]
+  if (!match) {
+    throw new Error('Invalid frontmatter format')
+  }
+  
+  let frontMatterBlock = match[1]
   let content = fileContent.replace(frontmatterRegex, '').trim()
   let frontMatterLines = frontMatterBlock.trim().split('\n')
   let metadata: Partial<Metadata> = {}
 
   frontMatterLines.forEach((line) => {
+    if (!line.trim()) return // Skip empty lines
     let [key, ...valueArr] = line.split(': ')
+    if (!key || !valueArr.length) return // Skip invalid lines
+    
     let value = valueArr.join(': ').trim()
     value = value.replace(/^['"](.*)['"]$/, '$1') // Remove quotes
     metadata[key.trim() as keyof Metadata] = value
   })
 
+  // Validate required fields
+  if (!metadata.title || !metadata.publishedAt || !metadata.summary) {
+    throw new Error('Missing required frontmatter fields')
+  }
+
   return { metadata: metadata as Metadata, content }
 }
 
-function getMDXFiles(dir) {
-  return fs.readdirSync(dir).filter((file) => path.extname(file) === '.mdx')
+async function getMDXFiles(dir) {
+  const files = await fs.readdir(dir)
+  return files.filter((file) => path.extname(file) === '.mdx')
 }
 
-function readMDXFile(filePath) {
-  let rawContent = fs.readFileSync(filePath, 'utf-8')
+async function readMDXFile(filePath) {
+  const rawContent = await fs.readFile(filePath, 'utf-8')
   return parseFrontmatter(rawContent)
 }
 
-function getMDXData(dir) {
-  let mdxFiles = getMDXFiles(dir)
-  return mdxFiles.map((file) => {
-    let { metadata, content } = readMDXFile(path.join(dir, file))
-    let slug = path.basename(file, path.extname(file))
+async function getMDXData(dir) {
+  const mdxFiles = await getMDXFiles(dir)
+  const posts = await Promise.all(
+    mdxFiles.map(async (file) => {
+      const { metadata, content } = await readMDXFile(path.join(dir, file))
+      const slug = path.basename(file, path.extname(file))
 
-    return {
-      metadata,
-      slug,
-      content,
-    }
-  })
+      return {
+        metadata,
+        slug,
+        content,
+      }
+    })
+  )
+  return posts
 }
 
-export function getBlogPosts() {
-  return getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts'))
+let cachedPosts: any[] | null = null
+
+export async function getBlogPosts() {
+  if (cachedPosts) {
+    return cachedPosts
+  }
+  
+  const posts = await getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts'))
+  cachedPosts = posts
+  return posts
 }
 
 export function formatDate(date: string, includeRelative = false) {

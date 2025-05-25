@@ -1,7 +1,8 @@
 ---
 title: 'Spaces vs. Tabs: The Indentation Debate Continues'
-publishedAt: '2024-04-08'
-summary: 'Explore the enduring debate between using spaces and tabs for code indentation, and why this choice matters more than you might think.'
+date: '2024-04-08'
+excerpt: 'Explore the enduring debate between using spaces and tabs for code indentation, and why this choice matters more than you might think.'
+tags: ['programming', 'best-practices', 'code-style']
 ---
 
 The debate between using spaces and tabs for indentation in coding may seem trivial to the uninitiated, but it is a topic that continues to inspire passionate discussions among developers. This seemingly minor choice can affect code readability, maintenance, and even team dynamics.
@@ -28,4 +29,4 @@ Ultimately, the choice between spaces and tabs often comes down to team consensu
 
 ## Conclusion
 
-While the spaces vs. tabs debate might not have a one-size-fits-all answer, it underscores the importance of consistency, readability, and team collaboration in software development. Whether a team chooses spaces, tabs, or a hybrid approach, the key is to make a conscious choice that serves the project's needs and to adhere to it throughout the codebase. As with many aspects of coding, communication and agreement among team members are paramount to navigating this classic programming debate.
+While the spaces vs. tabs debate might not have a one-size-fits-all answer, it underscores the importance of consistency, readability, and team collaboration in software development. Whether a team chooses spaces, tabs, or a hybrid approach, the key is to make a conscious choice that serves the project's needs and to adhere to it throughout the codebase. As with many aspects of coding, communication and agreement among team members are paramount to navigating this classic programming debate. 

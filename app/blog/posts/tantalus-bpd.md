@@ -1,18 +1,16 @@
 ---
 title: "Tantalus and Borderline Personality Disorder: A Modern Mythological Perspective"
-publishedAt: "2024-02-20"
-summary: "Exploring the parallels between the Greek myth of Tantalus and the experience of Borderline Personality Disorder, examining themes of eternal longing and emotional torment."
+date: "2024-02-20"
+excerpt: "Exploring the parallels between the Greek myth of Tantalus and the experience of Borderline Personality Disorder, examining themes of eternal longing and emotional torment."
+tags: ['mental-health', 'mythology', 'psychology']
+coverImage: "/images/tantalus.jpg"
 ---
-
-# Tantalus and Borderline Personality Disorder: A Modern Mythological Perspective
 
 The myth of Tantalus, condemned to eternal hunger and thirst in the underworld, offers a striking parallel to the experience of Borderline Personality Disorder (BPD). This ancient Greek tale, where Tantalus stands in a pool of water that recedes when he tries to drink and beneath fruit-laden branches that rise when he reaches for them, mirrors the emotional landscape of BPD in profound ways.
 
 ## The Eternal Longing
 
-![Tantalus in the Underworld](/images/tantalus.jpg)
-
-*The eternal torment of Tantalus, forever reaching but never grasping*
+![The eternal torment of Tantalus, forever reaching but never grasping](/images/tantalus.jpg)
 
 In the myth, Tantalus is punished for his hubris by being placed in a situation where his desires are perpetually visible but forever out of reach. This mirrors a core experience of BPD: the constant feeling of being close to emotional fulfillment while simultaneously being unable to achieve it. The emotional dysregulation characteristic of BPD creates a similar cycle of reaching and missing, of almost-there moments that slip away.
 
@@ -39,4 +37,4 @@ Unlike Tantalus's eternal punishment, BPD is treatable. Modern therapeutic appro
 
 The myth of Tantalus serves as a powerful metaphor for understanding the emotional experience of BPD. However, while Tantalus's punishment was eternal, the modern understanding of BPD offers hope for recovery and healing. Through proper treatment and support, individuals can learn to navigate their emotional landscape and find the fulfillment that seemed forever out of reach.
 
-*Note: This post is intended for educational purposes and should not be used as a substitute for professional medical advice. If you or someone you know is struggling with BPD, please seek help from qualified mental health professionals.* 
+> **Note**: This post is intended for educational purposes and should not be used as a substitute for professional medical advice. If you or someone you know is struggling with BPD, please seek help from qualified mental health professionals. 
